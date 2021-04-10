@@ -1,6 +1,21 @@
 const express = require ('express')
 const app = express()
 const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
+
+mongoose.connect('mongodb://localhost:27017/latihan',{
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+  useCreateIndex: true
+}).then(() =>{
+  console.log('berhasil connect ke database')
+}).catch((e) =>{
+  console.log(e)
+  console.log('gagal connect ke database')
+})
+
+
 
 app.use(bodyParser.json({
     extended: true,
@@ -13,7 +28,7 @@ app.use(bodyParser.urlencoded({
 }))
 
 app.get('/', (req, res) => {
-    res.send('<h1>Hello World</h1>')
+    res.send('<h1>Alit Yudia</h1>')
 })
 
 app.get('/profile/:username/:id', (req, res) => {
@@ -26,11 +41,14 @@ app.get('/daerah/:namadaerah/:id', (req, res) => {
     const idDaerah = req.params.idDaerah
     res.send('Daerah Aanda ' + req.params.namadaerah)
 })
-
-app.post('/register', (req, res) => {
-    console.log(req.body)
-    res.json(req.body)
-})
+//req body
+//app.post('/register', (req, res) => {
+    //res.json(req.body)
+    //console.log(req.body)
+//})
+//const userRoutes = require('./routes/User'))
+//app,use('/user/', userRoutes
+app.use('/user/', require ('./routes/User'))
 
 app.listen(3000, () =>{
     console.log('Server Mulai')
