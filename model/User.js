@@ -3,19 +3,19 @@ const Schema = mongoose.Schema
 
 const userSchema = new Schema({
     //username: String
-    username: {
+    UserName: {
     default: '',
     type: String
     },
-    password: {
+    Password: {
     default: '',
     type: String
     },
-    namalengkap: {
+    NamaLengkap: {
      default: '',
     type: String
     },
-    alamat: {
+    Alamat: {
     default: '',
     type: String
     }

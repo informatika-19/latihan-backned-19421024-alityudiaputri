@@ -1,16 +1,16 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const KegiatanSchema = new Schema({
-    namaKegiatan: {
+const kegiatanSchema = new Schema({
+    NamaKegiatan: {
         type: String
     },
-    deskripsi: {
+    Deskripsi: {
         type: String
     },
-    waktu: {
+    Waktu: {
         type: String
     }
-})
+}) 
 
-module.exports = mongoose.model('kegiatan', KegiatanSchema)
+module.exports = mongoose.model('Kegiatan', kegiatanSchema)

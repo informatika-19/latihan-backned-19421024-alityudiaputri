@@ -49,6 +49,7 @@ app.get('/daerah/:namadaerah/:id', (req, res) => {
 //const userRoutes = require('./routes/User'))
 //app,use('/user/', userRoutes
 app.use('/user/', require ('./routes/User'))
+app.use('/Kegiatan/', require('./routes/Kegiatan'))
 
 app.listen(3000, () =>{
     console.log('Server Mulai')
